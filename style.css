@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    height: 100vh;
+    width: 100vw;
+    background-color: #C4BCB3;
+    position: relative;
+}
+/* Header styles */
+#nav{
+    height:110px;
+    width:100%;
+    display:flex;
+    padding: 0 30px ;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+}
+#nav img{
+    height: 40px;
+    width: 30%;
+}
+#nav h5{
+    font-size: 15px;
+    font-weight: 100;
+    width:30%;
+}
+#nav i{
+    width: 30%;
+    text-align: right;
+}
