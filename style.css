@@ -160,6 +160,7 @@ html, body{
     color:#2f2f2f;
     font-weight: 100; 
 }
+/* Tittle "Dilan" styles*/
 #page1 h1{
     margin-top:50px;
     font-size: 600px;
@@ -175,3 +176,28 @@ html, body{
     justify-content:center;
     display:flex;
 }
+/* Estilo Descripción */
+
+#page2{
+    height:150vh;
+    width:100%;
+    background-color: #C4BCB3;
+    display:flex;//organiza mejor sus elementos de forma horizontal
+    align-items:center;
+    justify-content:space-between;
+}
+
+#page2-left{
+    height:100%;
+    width:55%;
+    background-color:red;
+}
+#page2-left h2{
+    font-size:130px;
+    font-family: canopee;
+}
+
+
+
+
+
