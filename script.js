@@ -3,21 +3,27 @@ const scroll = new LocomotiveScroll({
     smooth: true
 });
 
-//En esta parte del código damos el efecto cundo inicia la web
 var tl = gsap.timeline()
 
-tl.to("#page1",{
-    y:"100vh",
-    scale:0.5
+// Configuración inicial
+tl.set("#page1, #page2", {
+    y: "100vh",
+    scale: 0.5
 })
-tl.to("#page1",{
-    y:"30vh",
+
+// Animación simultánea de ambas páginas
+tl.to("#main, #page1,#page2", {
+    y: "-5vh",
     duration: 1,
-    delay:1     
+    delay: 1.2
 })
-tl.to("#page1",{
-    y:"0vh",
-    rotate:360,
-    scale:1,
+.to("#page1,#page2", {
+    y: "10vh",
+    rotate: 360,
+    scale: 1,
     duration: 0.8
-})
+},"-=0.2        ")
+// Ajuste final para asegurar que ambas páginas estén en su lugar
+.set("#main, #page1,#page2", {
+    y: "0vh"
+});
