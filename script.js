@@ -13,7 +13,7 @@ tl.set("#page1, #page2", {
 
 // Animación simultánea de ambas páginas
 tl.to("#main, #page1,#page2", {
-    y: "-5vh",
+    y: "0vh",
     duration: 1,
     delay: 1.2
 })
@@ -22,7 +22,7 @@ tl.to("#main, #page1,#page2", {
     rotate: 360,
     scale: 1,
     duration: 0.8
-},"-=0.2        ")
+},"-=0.2")
 // Ajuste final para asegurar que ambas páginas estén en su lugar
 .set("#main, #page1,#page2", {
     y: "0vh"
