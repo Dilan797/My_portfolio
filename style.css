@@ -1,416 +1,412 @@
-@font-face {
+@font-face{
     font-family: domaine;
     src: url('/domaine.ttf');
 }
-
-* {
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
     box-sizing: border-box;
 }
-
-html, body {
+html, body{
     height: 100%;
     width: 100%;
     font-size: 16px; /* Define a base font-size para usar unidades rem */
 }
-
-#main {
-    position: absolute;
-    background-color: #222;
-    overflow-x: hidden;
+#main{
+    position: absolute;    
+    background-color:#222;
+    overflow-x: hidden
 }
-
-#page1 {
-    height: 146vh;
+#page1{
+    /* height: 160vh; */
     width: 100vw;
     background-color: #C4BCB3;
     position: relative;
+    
 }
-
 /* Header styles */
-#nav {
-    height: 95px;
-    width: 100%;
-    display: flex;
-    padding: 0 2rem; /* Cambiado de px a rem */
+#nav{
+    height:95px;
+    width:100%;
+    display:flex;
+    padding: 0 30px ;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #222;
 }
-
-#nav img {
-    height: 2.5rem; /* Cambiado de px a rem */
+#nav img{
+    height: 40px;
     width: 30%;
 }
-
-#nav h5 {
-    font-size: 1.25rem; /* Cambiado de px a rem */
+#nav h5{
+    font-size: 20px;
     font-weight: 100;
-    margin-left: 1.5rem; /* Cambiado de px a rem */
-    width: 30%;
+    margin-left:25px;
+    width:30%;
 }
-
-#nav i {
+#nav i{
     width: 30%;
     text-align: right;
-    margin-right: 3rem; /* Cambiado de px a rem */
+    margin-right:50px;
 }
-
 /* Elements styles */
-#elements {
-    height: 24.375rem; /* Cambiado de px a rem */
-    display: flex;
-    align-items: center;
+#elements{
+    /* background-color: red; */
+    height:390px;
+    display:flex;
+    align-items:center;
     justify-content: space-between;
-    padding: 2.5rem 3.75rem; /* Cambiado de px a rem */
+    padding: 40px 60px;
 }
-
-#element1, #element2, #element3 {
+#element1{
     width: 30%;
     height: 105%;
+    /* background-color:blue; */
 }
-
-#element2 {
+#element2{
     width: 32%;
     height: 100%;
+    /* background-color:blue; */
     border-right: 1px solid #222;
-    padding: 1.25rem 3.75rem; /* Cambiado de px a rem */
-    text-align: center;
+    padding:20px 60px;
+    text-align:center;
     border-left: 1px solid #222;
 }
-
-#image-div {
-    height: 60%;
-    width: 100%;
-    overflow: hidden;
-}
-
-#image-div img {
+#element3{
+    width: 30%;
     height: 100%;
-    width: 100%;
-    object-fit: cover;
+    /* background-color:blue; */
+}
+#element1 #image-div{
+    height:60%;
+    width:100%;
+    overflow:hidden;
+}
+#image-div img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
     transition: all ease 0.5s;
 }
-
-#image-div:hover img {
-    transform: scale(1.1);
+#element2 #image-div{
+    height:60%;
+    width:100%;
+    overflow:hidden;
 }
-
-#element1 h4, #element3 h4 {
-    font-size: 1.25rem; /* Cambiado de px a rem */
-    margin: 1.25rem 0 0.625rem; /* Cambiado de px a rem */
-    font-family: canopee;
+#element3 #image-div{
+    height:60%;
+    width:100%;
+    overflow:hidden;
 }
-
-#element1 h4 span, #element3 h4 span {
-    background-color: #B43B12;
+#image-div:hover img{
+    scale:1.1;
+}
+#element1 h4{
+    font-size: 20px;
+    margin-top:20px;
+    margin-bottom:10px;
+    font-family:canopee;
+}
+#element1 h4 span{
+    background-color:#B43B12;
     color: #fff;
     font-weight: 100;
-    font-size: 1.125rem; /* Cambiado de px a rem */
-    padding: 0.25rem; /* Cambiado de px a rem */
-    margin-left: 0.625rem; /* Cambiado de px a rem */
-    border-radius: 0.3125rem; /* Cambiado de px a rem */
+    font-zise: 18px;
+    padding: 4px;
+    margin-left: 10px;
+    border-radius: 5px;
 }
-
-#element1 p, #element3 p {
-    font-size: 1.25rem; /* Cambiado de px a rem */
-    font-family: domaine;
-    font-weight: 100;
+#element1 p{
+    font-size: 20px;
+    font-family:domaine;
+    font-weight:100;
     color: #656565;
 }
-
-#element2 h2 {
-    font-family: canopee;
-    font-size: 4.6875rem; /* Cambiado de px a rem */
-    font-weight: 100;
-    letter-spacing: -0.1875rem; /* Cambiado de px a rem */
+#element3 h4{
+    font-size: 20px;
+    margin-top:20px;
+    margin-bottom:10px;
+    font-family:canopee;
 }
-
-#element2 h3 {
+#element3 h4 span{
+    background-color:#B43B12;
+    color: #fff;
+    font-weight: 100;
+    font-zise: 18px;
+    padding: 4px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+#element3 p{
+    font-size: 20px;
+    font-family:domaine;
+    font-weight:100;
+    color: #656565;
+}
+#element2 h2{
+    font-family: canopee;
+    font-size: 75px;
+    font-weight: 100;
+    letter-spacing:-3px;
+}
+#element2 h3{
     font-family: domaine;
-    font-size: 3.125rem; /* Cambiado de px a rem */
+    font-size: 50px;
     font-weight: 50;
-    margin: 1.25rem 0; /* Cambiado de px a rem */
-    color: #2f2f2f;
+    margin: 20px 0;
+    color:#2f2f2f;
 }
-
-#element2 h6 {
+#element2 h6{
     font-family: domaine;
-    font-size: 1.25rem; /* Cambiado de px a rem */
-    color: #2f2f2f;
-    font-weight: 100;
+    font-size: 20px;
+    color:#2f2f2f;
+    font-weight: 100; 
 }
-
-/* Tittle "Dilan" styles */
-#page1 h1 {
-    margin-top: 2.5rem; /* Cambiado de px a rem */
-    font-size: 37.5rem; /* Cambiado de px a rem */
-    font-weight: 100;
-    font-family: canopee;
-    background-color: #1c1c19;
+/* Tittle "Dilan" styles*/
+#page1 h1{
+    margin-top:40px;
+    font-size: 600px;
+    font-weight:100;
+    font-family:canopee;
+    background-color:#1c1c19;
     color: #C4BCB3;
-    line-height: 31.25rem; /* Cambiado de px a rem */
-    width: 95%;
-    margin-left: 2%; /* Cambiado de px a rem */
-    letter-spacing: 0.3125rem; /* Cambiado de px a rem */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    line-height:500px;
+    width:95%;
+    margin-left:2%;
+    letter-spacing:5px;
+    align-items:center;
+    justify-content:center;
+    display:flex;
 }
-
 /* Estilo Descripción */
-#page2 {
-    height: 195vh;
-    width: 100%;
+#page2{
+    height:195vh;
+    width:100%;
     background-color: #C4BCB3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2.1875rem 2.5rem; /* Cambiado de px a rem */
-    position: relative;
-    transform: translateY(100%);
-    z-index: -2;
+    display:flex;/*organiza mejor sus elementos de forma horizontal*/
+    align-items:center;
+    justify-content:space-between;
+    padding:35px 40px;/*Despega del lado superior y lado izquierdo el elemento*/
+    position:relative;
+    transform: translateY(100%); /* Inicialmente fuera de la vista */
+    z-index:-2;
 }
 
-#page2-left {
-    height: 100%;
-    padding-right: 2.5rem; /* Cambiado de px a rem */
-    width: 13%;
-    border-right: 1px solid #4b4b4b;
+#page2-left{
+    height:100%;
+    padding-right:40px;/*Despega los elementos de cada una de las secciones exactamente donde se unen */
+    width:13%;
+    border-right: 1px solid #4b4b4b; 
 }
-
-#page2-left h2 {
-    font-size: 7.1875rem; /* Cambiado de px a rem */
+#page2-left h2{
+    font-size:115px;
     font-family: canopee;
-    text-align: center;
-    line-height: 6.875rem; /* Cambiado de px a rem */
-    font-weight: 500;
+    text-align:center;
+    line-height:110px;
+    font-weight:500;
 }
-
-#page2-left h2 span {
-    font-size: 8.75rem; /* Cambiado de px a rem */
-    font-weight: 800;
+#page2-left h2 span{    
+    font-size:140px;
+    font-weight:800;    
 }
-
-#page2-left img {
-    margin-top: 1.25rem; /* Cambiado de px a rem */
-    height: 40%;
-    width: 100%;
-    background-color: red;
+#page2-left img{
+    margin-top:20px;
+    height:40%;
+    width:100%;
+    background-color:red;
 }
-
-#page2-left p {
-    font-size: 2.1875rem; /* Cambiado de px a rem */
-    font-family: domaine;
-    margin-top: 1.5625rem; /* Cambiado de px a rem */
-    color: #2f2f2f;
+#page2-left p{
+    font-size:35px;
+    font-family:domaine;
+    margin-top:25px;
+    color:#2f2f2f;    
 }
 
 #page2-left p:first-letter {
-    font-size: 5.3125rem; /* Cambiado de px a rem */
-    font-family: canopee;
+    font-size: 85px;
+    font-family:canopee;
     font-weight: 100;
-    background-color: #1c1c19;
+    background-color:#1c1c19;
     color: #C4BCB3;
     float: left;
-    padding: 0.6875rem; /* Cambiado de px a rem */
-    margin-right: 0.3125rem; /* Cambiado de px a rem */
-    line-height: 3.125rem; /* Cambiado de px a rem */
+    padding:11px;
+    margin-right: 5px;
+    line-height:50px;
 }
-
-#page2-right {
-    height: 70%;
-    width: 100%;
-    padding: 0 2.8125rem; /* Cambiado de px a rem */
+#page2-right{
+    height:70%;
+    width:100%;
+    padding:0 45px;
 }
-
-#page2-right img {
-    height: 85%;
-    margin-top: -9.375rem; /* Cambiado de px a rem */
-    object-fit: cover;
-    width: 24.5%;
+#page2-right img{
+    height:85%;/*Modifica el tamaño de la imagen */
+    margin-top:-150px;
+    object-fit:cover;
+    width:24.5%;
 }
-
-#page2-right h1 {
-    font-family: canopee;
-    padding: 0.3125rem; /* Cambiado de px a rem */
-    box-sizing: border-box;
-    font-size: 6.25rem; /* Cambiado de px a rem */
-    width: 25%;
-    margin-top: 0.9375rem; /* Cambiado de px a rem */
-    font-weight: 200;
-    line-height: 5.625rem; /* Cambiado de px a rem */
-    letter-spacing: -0.0625rem; /* Cambiado de px a rem */
+#page2-right h1{
+    font-family:canopee;
+    padding: 5px; /* Añade un poco de padding dentro del h1 */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total del h1 */
+    font-size: 100px;
+    width:25%;
+    margin-top:15px;
+    font-weight:200;
+    line-height:90px;
+    letter-spacing:-1px;/*Propiedad para ajustar el espacio entre letras*/ 
 }
-
-#page3 {
-    padding-bottom: 4.375rem; /* Cambiado de px a rem */
-    position: relative;
-    background-color: #C4BCB3;
+#page3{
+    padding-bottom:70px;    
+    position:relative;
+    background-color:#C4BCB3;
 }
-
-#page3 h1 {
-    font-size: 29.375rem; /* Cambiado de px a rem */
-    font-weight: 100;
-    letter-spacing: -0.625rem; /* Cambiado de px a rem */
-    background-color: #1C1C19;
-    width: 42%;
-    max-width: 27.5%;
-    color: #C4BCB3;
-    margin-left: 0.0375rem; /* Cambiado de px a rem */
-    padding: 0 0.9375rem; /* Cambiado de px a rem */
-    line-height: 26.25rem; /* Cambiado de px a rem */
-    font-family: canopee;
+#page3 h1{
+    font-size:470px;
+    font-weight:100;
+    letter-spacing:-10px;
+    background-color:#1C1C19;
+    width:42%;
+    max-width:27.5%; /* Limita el ancho máximo al 80% */
+    color:#C4BCB3;
+    margin-left:0.6%;
+    padding:0 15px;
+    line-height:420px;
+    font-family:canopee;
 }
-
-#page3 img {
-    height: 53.125rem; /* Cambiado de px a rem */
-    position: absolute;
-    top: -13.5rem; /* Cambiado de px a rem */
-    right: 61.3%;
+#page3 img{
+    height:850px;
+    position:absolute;
+    top:-45%;
+    right:61%;
 }
-
-#page4 {
-    height: 140vh;
-    width: 100%;
-    display: flex;
-    align-content: center;
-    background-color: #C4BCB3;
+#page4{
+    height:140vh;
+    width:100%;
+    display:flex;
+    align-content:center;
+    background-color:#C4BCB3;
 }
-
 #page4-left {
-    width: 20.5%;
-    height: 100%;
-    border-right: 1px solid #4b4b4b;
-    padding: 3.75rem 3.125rem; /* Cambiado de px a rem */
+    width:20.5%;
+    height:100%;
+    border-right: 1px solid #4b4b4b; 
+    padding: 60px 50px;
 }
-
-#page4-left img {
-    width: 99%;
-    height: 80%;
-    object-fit: cover;
+#page4-left img{
+    width:99%;
+    height:80%;
+    object-fit:cover;
 }
-
 #page4-right {
-    width: 16%;
-    height: 100%;
-    padding: 5rem 3.75rem; /* Cambiado de px a rem */
+    width:16%;
+    height:100%;
+    padding:80px 60px;    
 }
-
-#page4-right h4 {
-    font-size: 9.5625rem; /* Cambiado de px a rem */
-    font-family: canopee;
-    text-align: center;
-    letter-spacing: -0.0625rem; /* Cambiado de px a rem */
+#page4-right h4{
+    font-size:153px;
+    font-family:canopee;
+    text-align:center;
+    letter-spacing:-1px;/*Propiedad para ajustar el espacio entre letras*/     
 }
-
-#page4-right p {
-    font-size: 1.875rem; /* Cambiado de px a rem */
-    font-family: domaine;
-    width: 102%;
-    margin-bottom: 0.9375rem; /* Cambiado de px a rem */
+#page4-right p{
+    font-size:30px;
+    font-family:domaine;
+    width:102%;
+    margin-bottom:15px;
 }
-
 .styled-first-letter:first-letter {
-    font-size: 6.5625rem; /* Cambiado de px a rem */
-    margin-top: 0;
-    font-family: canopee;
+    font-size: 105px;
+    margin-top:0px;
+    font-family:canopee;
     font-weight: 100;
-    background-color: #1c1c19;
+    background-color:#1c1c19;
     color: #C4BCB3;
     float: left;
-    padding: 0.6875rem; /* Cambiado de px a rem */
-    margin-right: 0.3125rem; /* Cambiado de px a rem */
-    line-height: 5rem; /* Cambiado de px a rem */
+    padding:11px;
+    margin-right: 5px;
+    line-height:80px;
 }
-
-#page4-right #anda {
-    margin-left: 5%;
-    margin-top: 7.1875rem; /* Cambiado de px a rem */
-    height: 13.75rem; /* Cambiado de px a rem */
-    width: 90%;
-    border-radius: 50%;
-    background-color: #CAC1B6;
-    border: 1px solid #2F2F2F;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#page4-right #anda{
+    margin-left:5%;
+    margin-top:115px;
+    height:220px;
+    width:90%;
+    border-radius:50%;
+    background-color:#CAC1B6;
+    border:1px solid #2F2F2F;
+    display:flex;  /*Coloca elementos en fila si por ejemplo estos elementos estan uno debajo del otro en columna*/
+    align-items:center;
+    justify-content:center;
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow:hidden;
 }
-
-#anda h1 {
-    font-size: 5rem; /* Cambiado de px a rem */
-    font-family: canopee;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(-28%);
-    transition: all ease 0.6s;
+#anda h1{
+    font-size:80px;
+    font-family:canopee;
+    height:100%;
+    width:100%;
+    display:flex;  /*Coloca elementos en fila si por ejemplo estos elementos estan uno debajo del otro en columna*/
+    align-items:center;
+    justify-content:center;
+    transform:translateX(-28%);
+    transition:all ease 0.6s;    
 }
-
 #anda img {
-    height: 4.0625rem; /* Cambiado de px a rem */
-    transform: translateX(-100%);
-    transition: all ease 0.6s;
-    display: inline-block;
+    height:65px;
+    transform:translateX(-100%);    
+    transition:all ease 0.6s;    
+    display:inline-block;
+}
+/* Estilo para efecto ---->  CURRICULUM */ 
+#anda:hover img{
+    transform:translateX(88%);
+}
+#anda:hover h1  {
+    transform:translateX(115%);
 }
 
-#anda:hover img {
-    transform: translateX(88%);
-}
 
-#anda:hover h1 {
-    transform: translateX(115%);
-}
-
-/* Estilo letrero final de pagina */
-#page5 {
+/* Estilo letrero final de pagina  */
+#page5 {    
     width: 100%;
-    padding: 1.875rem 0; /* Cambiado de px a rem */
-    background-color: #C4BCB3;
+    padding:30px 0;    
+    background-color:#C4BCB3;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
-
-#page5 h1 {
-    font-size: 6.25rem; /* Cambiado de px a rem */
-    font-family: domaine;
-    margin: 0.625rem; /* Cambiado de px a rem */
+#page5 h1{
+    font-size:100px;
+    font-family:domaine;
+    margin: 10px; 
     white-space: nowrap;
-    font-weight: 100;
-    margin-right: 1.25rem; /* Cambiado de px a rem */
-    animation-timing-function: linear;
-    animation-name: scroll;
-    animation-duration: 3s;
+    font-weight:100;
+    margin-right:20px;
+    animation-timing-function:linear;
+    animation-name:scroll;
+    animation-duration:3s;
     animation-iteration-count: infinite;
 }
-
-#page5 h1 span {
-    font-size: 6.25rem; /* Cambiado de px a rem */
-    background-color: #2f2f2f;
-    color: #C4BCB3;
-    font-family: domaine;
-    font-weight: 10;
-    padding: 0 0.75rem; /* Cambiado de px a rem */
+#page5 h1 span{
+    font-size:100px;
+    background-color:#2f2f2f;
+    color:#C4BCB3;
+    font-family:domaine;
+    font-weight:10;
+    padding:0 12px;
 }
-
-@keyframes scroll {
-    0% {
+@keyframes scroll{
+    0%{
         transform: translateX(0);
+        
     }
-
-    100% {
-        transform: translateX(calc(-100% - 1.5rem)); /* Cambiado de px a rem */
-    }
+    100%{
+        transform: translateX(calc(-100% - 24px));
+    }    
 }
-
 #page6 {
-    height: 9.375rem; /* Cambiado de px a rem */
+    height:150px;
     width: 100%;
-    background-color: #C4BCB3;
+    background-color:#C4BCB3;
 }
