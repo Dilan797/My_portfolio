@@ -217,6 +217,7 @@ html, body{
 }
 #page2-left p{
     font-size:35px;
+    width:103%;
     font-family:domaine;
     margin-top:25px;
     color:#2f2f2f;    
