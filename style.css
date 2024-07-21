@@ -197,7 +197,7 @@ html, body{
 
 #page2-left{
     height:100%;
-    padding-right:40px;/*Despega los elementos de cada una de las secciones exactamente donde se unen */
+    padding-right:2.5vw;/*Despega los elementos de cada una de las secciones exactamente donde se unen */
     width:33vw;
     border-right: 1px solid #4b4b4b;
 }
@@ -215,7 +215,7 @@ html, body{
 }
 #page2-left img{
     margin-top:20px;
-    height:40%;
+    height:37%;
     width:30vw;
     background-color:red;
 }
@@ -253,7 +253,7 @@ html, body{
     height:47vw;/*Modifica el tamaño de la imagen */
     margin-top:-10vw;
     object-fit:cover;
-    width:57vw;
+    width:57.5vw;
 }
 #page2-right h1{
     position:relative;
@@ -345,7 +345,7 @@ html, body{
     line-height:5.5vw;
 }
 #page4-right #anda{
-    margin-left:0.5vw;
+    margin-left:2vw;
     margin-top:10vw;
     height:220px;
     width:90%;
