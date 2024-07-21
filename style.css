@@ -295,7 +295,7 @@ html, body{
     right:-8.3vw;
 }
 #page4{
-    height:140vh;
+    height:165vh;
     width:100vw;
     display:flex;
     align-content:center;
@@ -308,14 +308,14 @@ html, body{
     padding: 60px 50px;
 }
 #page4-left img{
-    width:48vw;
+    width:50vw;
     height:80%;
     object-fit:cover;
 }
 #page4-right {
     width:46vw;
     height:100%;
-    padding:80px 60px;
+    padding:80px 35px;
 }
 #page4-right h4{
     font-size:8vw;
@@ -324,26 +324,29 @@ html, body{
     letter-spacing:-1px;/*Propiedad para ajustar el espacio entre letras*/
 }
 #page4-right p{
-    font-size:2vw;
+    font-size:1.9vw;
     font-family:domaine;
-    width:102%;
+    width:38vw;
     margin-bottom:15px;
+    margin-top:2vw;
+
+    line-height:2.1vw;
 }
 .styled-first-letter:first-letter {
-    font-size: 105px;
-    margin-top:0px;
+    font-size: 8vw;
+    margin-top:-0.7vw;
     font-family:canopee;
     font-weight: 100;
     background-color:#1c1c19;
     color: #C4BCB3;
     float: left;
-    padding:11px;
+    padding:0.7vw;
     margin-right: 5px;
-    line-height:80px;
+    line-height:5.5vw;
 }
 #page4-right #anda{
-    margin-left:5%;
-    margin-top:115px;
+    margin-left:0.5vw;
+    margin-top:10vw;
     height:220px;
     width:90%;
     border-radius:50%;
