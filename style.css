@@ -167,14 +167,14 @@ html, body{
 }
 /* Tittle "Dilan" styles*/
 #page1 h1{
-    margin-top:40px;
-    font-size: 600px;
+    margin-top:4vw;
+    font-size: 38vw;
     font-weight:100;
     font-family:canopee;
     background-color:#1c1c19;
     color: #C4BCB3;
-    line-height:500px;
-    width:95%;
+    line-height:30vw;
+    width:96vw;
     margin-left:2%;
     letter-spacing:5px;
     align-items:center;
@@ -302,7 +302,7 @@ html, body{
     background-color:#C4BCB3;
 }
 #page4-left {
-    width:55vw;
+    width:60vw;
     height:100%;
     border-right: 1px solid #4b4b4b;
     padding: 60px 50px;
@@ -318,13 +318,13 @@ html, body{
     padding:80px 60px;
 }
 #page4-right h4{
-    font-size:153px;
+    font-size:8vw;
     font-family:canopee;
     text-align:center;
     letter-spacing:-1px;/*Propiedad para ajustar el espacio entre letras*/
 }
 #page4-right p{
-    font-size:30px;
+    font-size:2vw;
     font-family:domaine;
     width:102%;
     margin-bottom:15px;
