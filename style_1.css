@@ -1,9 +1,45 @@
-@media screen and (min-width: 1920px) {
-    #element2 h3{
-        width:102%;
-        
+
+/* Medias queries para pantallas menores a 1200px */
+@media screen and (max-width: 1200px) {
+    
+    #page2{
+        height:80vh;
+    }
+    #page2-left img{
+        margin-top:20px;
+        height:40%; 
+    }
+    #page2-right img{
+        position:relative;
+        height:47vw;/*Modifica el tamaño de la imagen */
+        margin-top:-9vw;
+    }
+    #page2-right h1{
+        line-height:9vh;
+    }
+    #page4-left img{
+        width:50vw;
+        height:70%;
+        object-fit:cover;
+    }
+    #page4-right p{
+        font-size:1.9vw;
+        font-family:domaine;
+        width:37.1vw;
+    }
+    #page4{
+        height:130vh;
+        width:100vw;
     }
 }
-@media screen and (min-width: 1600px) {
-
+@media screen and (max-width: 1024px) {
+    #page4-right p{
+        font-size:1.9vw;
+        font-family:domaine;
+        width:36vw;
+    }
+    #page4{
+        height:150vh;
+        width:100vw;
+    }
 }

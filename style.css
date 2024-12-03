@@ -202,12 +202,11 @@ html, body{
     border-right: 1px solid #4b4b4b;
 }
 #page2-left h2{
-
-    font-size:6vw;
+    font-size:7vw;
     font-family: canopee;
     text-align:center;
     line-height:6.5vw;
-    font-weight:500;
+    font-weight:600;
 }
 #page2-left h2 span{
     font-size:8vw;
@@ -345,7 +344,7 @@ html, body{
     line-height:5.5vw;
 }
 #page4-right #anda{
-    margin-left:2vw;
+    margin-left:1vw;
     margin-top:10vw;
     height:220px;
     width:90%;
