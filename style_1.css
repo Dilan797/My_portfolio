@@ -7,6 +7,10 @@
         margin-top:32px;
         padding:0px;
     }
+    #page2-left img{
+        margin-top:20px;
+        height:30%; 
+    }
 }
 
 /* Medias queries para pantallas menores a 1200px */
@@ -18,14 +22,13 @@
     }
     #page2-left img{
         margin-top:20px;
-        height:40%; 
+        height:30%; 
     }
     #page2-right img{
         position:relative;
         height:47vw;/*Modifica el tamaño de la imagen */
         margin-top:-9vw;
-    }
-    
+    }    
     #page4-left img{
         width:50vw;
         height:70%;
@@ -41,7 +44,7 @@
         width:100vw;
     }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1000px) {
     #page2{
         height:80vh;
     }
@@ -65,11 +68,38 @@
     }
 }
 @media screen and (max-width: 912px) {
+    
     #page2{
         height:70vh;
     }
+    #page2-right {
+        padding: 20px 15px; /* Añade un padding interno */
+        margin: 0 auto; /* Centra el contenido */
+    }
     #page2-left img{
         margin-top:20px;
-        height:40%; 
+        height:30%; 
+    }
+    #page2-right h1{
+        line-height:4vh;
+        margin-top:32px;
+        padding:0px;
+        font-size:6.5vw;
+    }
+    #page4{
+        height:70vh;
+        width:100vw;
+    }
+    #page4-right {
+        padding-left: 5px; /* Reduce el padding interno a la izquierda */
+        margin-left: 10px; /* Mueve todo el contenedor más hacia la izquierda */
+    }
+    #page4-right h4 {
+        text-align: left; /* Alinea el título a la izquierda */
+        margin-left: 40px; /* Asegúrate de que no haya margen adicional */
+    }
+    #page4-right p {
+        margin-left: 0; /* Elimina cualquier margen adicional */
+        text-align: justify; /* Justifica el texto para que sea más uniforme */
     }
 }
