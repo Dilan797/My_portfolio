@@ -54,3 +54,12 @@
         padding:36px;
     }
 }
+@media screen and (max-width: 912px) {
+    #page2{
+        height:80vh;
+    }
+    #page2-left img{
+        margin-top:20px;
+        height:40%; 
+    }
+}
