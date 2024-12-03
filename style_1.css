@@ -35,7 +35,7 @@
 }
 @media screen and (max-width: 1024px) {
     #page2{
-        height:100vh;
+        height:80vh;
     }
     #page2-right h1{
         line-height:6vh;
