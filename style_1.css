@@ -15,9 +15,7 @@
         height:47vw;/*Modifica el tamaño de la imagen */
         margin-top:-9vw;
     }
-    #page2-right h1{
-        line-height:5vh;
-    }
+    
     #page4-left img{
         width:50vw;
         height:70%;
@@ -38,7 +36,7 @@
         height:80vh;
     }
     #page2-right h1{
-        line-height:6vh;
+        line-height:5vh;
         margin-top:32px;
     }
     #page4-right p{
