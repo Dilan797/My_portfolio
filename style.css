@@ -357,6 +357,17 @@ html, body{
     flex-wrap: nowrap;
     overflow:hidden;
 }
+#anda {
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    height: 150px; /* Ajusta el tamaño del círculo */
+    width: 150px; /* Mantén proporciones */
+    border-radius: 50%; /* Asegura que sea un círculo perfecto */
+    margin: 0 auto; /* Centra el círculo dentro del contenedor padre */
+    text-align: center; /* Alinea el texto en el centro */
+    overflow: hidden; /* Evita desbordes */
+}
 #anda h1{
     font-size:80px;
     font-family:canopee;

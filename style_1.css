@@ -1,25 +1,8 @@
-@media screen and (max-width: 1280px) {
-    #page2{
-        height:150vh;
-    }
-    #page2-right h1{
-        line-height:9vh;
-        margin-top:32px;
-        padding:0px;
-    }
-    #page2-left img{
-        margin-top:20px;
-        height:30%; 
-    }
-}
+
 
 /* Medias queries para pantallas menores a 1200px */
 @media screen and (max-width: 1200px) {
 
-
-    #page2{
-        height:100vh;
-    }
     #page2-left img{
         margin-top:20px;
         height:30%; 
@@ -101,5 +84,10 @@
     #page4-right p {
         margin-left: 0; /* Elimina cualquier margen adicional */
         text-align: justify; /* Justifica el texto para que sea más uniforme */
+    }
+    #anda h1{
+        font-size:60px;
+        padding:36px;
+        margin-left:-12px;
     }
 }
