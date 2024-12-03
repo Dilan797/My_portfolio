@@ -378,6 +378,7 @@ html, body{
     justify-content:center;
     transform:translateX(-28%);
     transition:all ease 0.6s;
+    margin-left:35px;
 }
 #anda img {
     height:65px;

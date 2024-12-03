@@ -27,27 +27,60 @@
         width:100vw;
     }
 }
-@media screen and (min-width: 1000px) {
-    #page2{
-        height:80vh;
+@media screen and (max-width: 1024px) {
+    #page2 {
+        height: 70vh; /* Ajusta la altura para adaptarse al viewport */
     }
-    #page2-right h1{
-        line-height:5vh;
-        margin-top:32px;
-        padding:0px;
+    #page2-right {
+        padding: 20px; /* Ajusta el padding interno */
+        
+        width: 90%; /* Limita el ancho del contenedor */
     }
-    #page4-right p{
-        font-size:1.9vw;
-        font-family:domaine;
-        width:36vw;
+    #page2-right h1 {
+        font-size: 5.5  vw; /* Reduce el texto */
+        line-height: 4.5vh; /* Ajusta el espacio entre líneas */
+        margin-top: 20px; /* Mejora la separación */
+        padding: 0;
+        word-wrap: break-word; /* Fuerza el texto a ajustarse al ancho disponible */
+        overflow-wrap: break-word; /* Manejo adicional para evitar desbordes */
     }
-    #page4{
-        height:80vh;
-        width:100vw;
+    #page2-right img{
+        position:relative;
+        height:47vw;/*Modifica el tamaño de la imagen */
+        margin-top:-9vw;
+        width:54vw;
+        margin-left:18px;
+    }    
+    #page4 {
+        height: 70vh; /* Ajusta la altura de la sección */
     }
-    #anda h1{
-        font-size:65px;
-        padding:36px;
+
+    #page4-right #anda {
+        height: 180px; /* Tamaño del círculo */
+        width: 294px;
+        margin: 0 auto; /* Centra el círculo horizontalmente */
+        margin-top: 5vw; /* Ajusta su posición vertical */
+        display: flex; /* Asegura centrado */
+        align-items: center;
+        justify-content: center;
+    }
+
+    #anda h1 {
+        font-size: 50px; /* Ajusta el texto */
+        transform: none; /* Evita desplazamientos */
+        margin-left: -70px;
+    }
+    #anda img{
+        height:55px;
+        margin-left: -100px;
+    }  
+    #page4-left {
+        padding: 63px 29px; /* Mueve todo el contenedor más hacia la izquierda */
+    }
+    #page4-right p {        
+        font-size: 26px; /* Ajusta el texto */
+        margin-top:20px;
+        text-align: justify; /* Alineación para legibilidad */
     }
 }
 @media screen and (max-width: 912px) {
@@ -82,13 +115,66 @@
         margin-left: 40px; /* Asegúrate de que no haya margen adicional */
     }
     #page4-right p {
+        margin-top:20px;
         margin-left: 0; /* Elimina cualquier margen adicional */
         text-align: justify; /* Justifica el texto para que sea más uniforme */
     }
     #anda h1{
-        font-size:60px;
+        font-size:45x;
         padding:36px;
-        margin-left:-12px;
+        margin-left:-70px;
+    }
+    #anda img{
+        height:57px;
+        
+    }   
+    #page4-right #anda {
+        height: 150px; /* Reduce el tamaño del círculo */
+        width: 320px; /* Reduce proporcionalmente */
+        margin-top: 5vw; /* Ajusta el margen superior */
+    }
+}
+@media screen and (max-width: 820px) {
+    #page2 {
+        height: 75vh; /* Reduce la altura de la sección */
+    }
+
+    #page2-right {
+        padding: 15px 10px; /* Ajusta el espacio interno */
+        margin: 0 auto; /* Centra el contenido */
+    }
+
+    #page4 {
+        height: 75vh; /* Ajusta la altura */
+    }
+
+    #page4-right #anda {
+        height: 150px; /* Reduce el tamaño del círculo */
+        width: 247px; /* Mantén proporciones */
+        margin-top: 5vw; /* Ajusta su posición */
+        text-align: center; /* Centra el texto */
+    }
+
+    #anda h1 {
+        font-size: 40px; /* Reduce el tamaño del texto */
+        transform: none; /* Elimina transformaciones */
+        margin-left: -55px; /* Centra el texto */
+    }
+    #anda img{
+        height:50px;
+        
+    }  
+    #page4-right p {
+        font-size: 20px; /* Ajusta el tamaño del texto */
+        margin: 10px; /* Elimina márgenes innecesarios */
+        margin-top: 20px; /* Elimina márgenes innecesarios */
+        text-align: justify; /* Mejora la legibilidad */
+    }
+    #element3 p{
+        font-size: 16px;
+    }
+    #element1 p{
+        font-size: 12px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -97,20 +183,26 @@
         margin-left: 4px; /* Mueve todo el contenedor más hacia la izquierda */
     }
     #page4-right #anda {
-        height: 150px; /* Reduce el tamaño del círculo */
-        width: 270px; /* Reduce proporcionalmente */
+        height: 130px; /* Reduce el tamaño del círculo */
+        width: 230px; /* Reduce proporcionalmente */
         margin-top: 5vw; /* Ajusta el margen superior */
     }
     #anda h1{
         font-size:40px;
         padding:36px;
-        margin-left:-62px;
+        margin-left:-55px;
+    }
+    #anda img{
+        height:48px;
     }
     #page4-left img{
         margin-left:-13px;
         width:50vw;
         height:70%;
         object-fit:cover;
+    }
+    #page4-right p {
+        margin-top:20px;
     }
     #element3 p{
         font-size: 15px;
