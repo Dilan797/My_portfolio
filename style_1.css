@@ -27,7 +27,7 @@
 }
 @media screen and (max-width: 1024px) {
     #page2 {
-        height: 70vh; /* Ajusta la altura para adaptarse al viewport */
+        height: 75vh; /* Ajusta la altura para adaptarse al viewport */
     }
     #page2-right {
         padding: 20px; /* Ajusta el padding interno */
