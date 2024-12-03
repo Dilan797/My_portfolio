@@ -1,19 +1,10 @@
 
 /* Medias queries para pantallas menores a 1200px */
 @media screen and (max-width: 1200px) {
-    html, body{
-        height: 100%;
-        width: 100%;
-        font-size: 16px; /* Define a base font-size para usar unidades rem */
-    }
-    #main{
-        position: absolute;
-        background-color:#222;
-        overflow-x: hidden
-    }
+
 
     #page2{
-        height:80vh;
+        height:100vh;
     }
     #page2-left img{
         margin-top:20px;
@@ -44,7 +35,7 @@
 }
 @media screen and (max-width: 1024px) {
     #page2{
-        height:150vh;
+        height:100vh;
     }
     #page2-right h1{
         line-height:6vh;
