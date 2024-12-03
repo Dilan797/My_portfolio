@@ -1,4 +1,8 @@
-
+@media screen and (max-width: 1300px) {
+    #page2{
+        height:100vh;
+    }
+}
 /* Medias queries para pantallas menores a 1200px */
 @media screen and (max-width: 1200px) {
     
