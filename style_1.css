@@ -91,3 +91,28 @@
         margin-left:-12px;
     }
 }
+@media screen and (max-width: 768px) {
+    #page4-right {
+        padding-left: 5px; /* Reduce el padding interno a la izquierda */
+        margin-left: 4px; /* Mueve todo el contenedor más hacia la izquierda */
+    }
+    #page4-right #anda {
+        height: 150px; /* Reduce el tamaño del círculo */
+        width: 270px; /* Reduce proporcionalmente */
+        margin-top: 5vw; /* Ajusta el margen superior */
+    }
+    #anda h1{
+        font-size:40px;
+        padding:36px;
+        margin-left:-62px;
+    }
+    #page4-left img{
+        margin-left:-13px;
+        width:50vw;
+        height:70%;
+        object-fit:cover;
+    }
+    #element3 p{
+        font-size: 15px;
+    }
+}
