@@ -2,13 +2,9 @@
 /* Medias queries para pantallas menores a 1200px */
 @media screen and (max-width: 1200px) {
     
-    #main{
-        position: absolute;
-        background-color:#222;
-        overflow-x: hidden
-    }
+
     #page2{
-        height:100vh;
+        height:90vh;
     }
     #page2-left img{
         margin-top:20px;
@@ -20,7 +16,7 @@
         margin-top:-9vw;
     }
     #page2-right h1{
-        line-height:6vh;
+        line-height:5vh;
     }
     #page4-left img{
         width:50vw;
