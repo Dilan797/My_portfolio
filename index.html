@@ -3,102 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
+    <title>The Paper Portfolio</title>
+    
+    <!-- Enlaces a hojas de estilo externas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <!-- Tus estilos originales -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_1.css">
-    
-    <!-- Estilos responsivos -->
-    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <link rel="stylesheet" href="style_2.css">
+    <!-- Nuevo archivo CSS solo para el efecto 3D -->
+    <link rel="stylesheet" href="nav-effect.css">
 </head>
 <body>
-    <div id="main">
-        <div id="page1" class="height-set">
-            <div id="nav">
-                <h5>Huila, Co.</h5>
-                <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/5f7f87c8b81a6e7a214312f0_header.svg"> 
-                <i class="ri-menu-2-line"></i>
-            </div>
-                <div id="elements"> 
-                    <div id="element1">
-                        <div id="image-div">
+    <!-- Contenedor principal para el efecto 3D -->
+    <div class="container">
+        <!-- Contenedor para la transformación 3D -->
+        <div class="main-container">
+            <div class="main">
+                <div id="main">
+                    <!-- Página 1: Sección de introducción -->
+                    <div id="page1" class="height-set">
+                        <!-- Barra de navegación -->
+                        <div id="nav">
+                            <h5>Huila, Co.</h5>
+                            <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/5f7f87c8b81a6e7a214312f0_header.svg">
+                            <!-- Menú hamburguesa para el efecto 3D -->
+                            <div class="hamburger-menu">
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sección de elementos/proyectos -->
+                        <div id="elements">
+                            <div id="element1">
+                                <div id="image-div">
+                                    <img src="src/imagen_1.png">
+                                </div>
+                                <h4>
+                                    GUSTO | NET <span>NEW</span>
+                                </h4>
+                                <p>In a world where technology is advancing by leaps and bounds, GustoNet is positioned as an innovative solution for restaurants looking to improve their customer experience and optimize their operations. This new web app allows diners to access the restaurant's full menu by simply scanning a QR code with their smartphones.</p>
+                            </div>
+
+                            <div id="element2">
+                                <h2>All work!</h2>
+                                <h3>A featured selection <br>the latest work- <br>of the last years</h3>
+                            </div>
+
+                            <div id="element3">
+                                <div id="image-div">
+                                    <img src="src/imagen_2.jpg">
+                                </div>
+                                <h4>EXPLORE PLACE <span>NEW</span></h4>
+                                <p>This is a demo of a travel app; It's a revolutionary platform that transforms the way we explore the world, making every adventure more accessible, exciting, and memorable.</p>
+                            </div>
+                        </div>
+                        <h1>DILAN</h1>
+                    </div>
+
+                    <!-- Página 2: Sección de habilidades -->
+                    <div id="page2">
+                        <div id="page2-left">
+                            <h2>FRONT-END <span>DEVELOPER!</span></h2>
                             <img src="src/imagen_1.png">
+                            <p>I am an Electronic Engineering student with a focus on web programming. I have acquired solid knowledge in programming languages such as HTML, CSS, JavaScript, and MySQL. Additionally, I have experience in cloud computing, backed by courses provided by Google.<br>I have knowledge of English, and my goal is to effectively apply my skills and knowledge to the growth of a company while continuously learning and developing professionally.</p>
                         </div>
-                        <h4>
-                            GUSTO | NET <span>  NEW</span> 
-                        </h4>
-                        <p>In a world where technology is advancing by leaps and bounds, GustoNet is positioned as an innovative solution for restaurants looking to improve their customer experience and optimize their operations. This new web app allows diners to access the restaurant's full menu by simply scanning a QR code with their smartphones.</p>
-                    </div>
-                    <div id="element2">
-                        <h2>All work!</h2>
-                        <h3>A featured selection <br>the latest work- <br>of the last years</h3>
-                        
-                    </div>
-                    <div id="element3">
-                        <div id="image-div">
-                            <img src="src/imagen_2.jpg">
+                        <div id="page2-right">
+                            <img src="src/imagen_2.jpg" alt="">
+                            <h1>Front-End investigator developer with experience in cloud services and different programming languages</h1>
                         </div>
-                        <h4>EXPLORE PLACE <span>NEW</span></h4>
-                        <p>This is a demo of a travel app; It's a revolutionary platform that transforms the way we explore the world, making every adventure more accessible, exciting, and memorable.</p>
+                    </div>
+
+                    <!-- Página 3: Sección Website -->
+                    <div id="page3">
+                        <h1>Website</h1>
+                        <img src="/src/logo_dilan.png" alt="">
+                    </div>
+
+                    <!-- Página 4: Sección About -->
+                    <div id="page4">
+                        <div id="page4-left">
+                            <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/605c679f33f67d3dd00b04b4_avatar-3.jpeg">
+                        </div>
+                        <div id="page4-right">
+                            <h4>ABOUT ME!</h4>
+                            <p class="styled-first-letter">Hello! My name is Dilan Perdomo, a passionate student of electronic engineering born on July 7, 1995. I specialize in web programming and have gained proficiency in languages such as HTML, CSS, JavaScript, and MySQL. Additionally, I have expanded my skill set to include cloud computing through comprehensive courses from Google.</p>
+                            <p>I am committed to applying my knowledge and skills to contribute to the growth and success of any organization. My dedication to continuous learning ensures that I stay updated with the latest industry trends and technologies. I am fluent in English and possess intermediate proficiency in the Microsoft Office suite.</p>
+                            <div id="anda">
+                                <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/61001a3509319b6ae39e156b_arrow-long.svg">
+                                <h1>CURRICULUM</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página 5: Sección de contacto -->
+                    <div id="page5">
+                        <div>
+                            <h1>Let's create something together <span>Email me</span></h1>
+                        </div>
+                        <div>
+                            <h1>Let's create something together <span>Email me</span></h1>
+                        </div>
+                        <div>
+                            <h1>Let's create something together <span>Email me</span></h1>
+                        </div>
+                    </div>
+
+                    <!-- Página 6: Footer -->
+                    <div id="page6">
                     </div>
                 </div>
-            <h1>DILAN</h1>
+            </div>
+
+            <!-- Sombras para el efecto 3D -->
+            <div class="shadow one"></div>
+            <div class="shadow two"></div>
         </div>
-        <div id="page2">
-            <div id="page2-left">
-                <h2>FRONT-END <span> DEVELOPER! </span></h2>
-                <!-- Imagen debajo  -->
-                <img src="src/imagen_1.png ">
-                <p>I am an Electronic Engineering student with a focus on web programming. I have acquired solid knowledge in programming languages such as HTML, CSS, JavaScript, and MySQL. Additionally, I have experience in cloud computing, backed by courses provided by Google.<br>I have knowledge of English, and my goal is to effectively apply my skills and knowledge to the growth of a company while continuously learning and developing professionally.</p>
+
+        <!-- Menú de navegación lateral -->
+        <div class="links">
+            <div class="close-btn">×</div>
+            <ul>
+                <li><a href="#page1" style="--i: 0.05s;">HOME</a></li>
+                <li><a href="#page2" style="--i: 0.1s;">SKILLS</a></li>
+                <li><a href="projects.html" style="--i: 0.15s;">PROJECTS</a></li>
+                <li><a href="#page4" style="--i: 0.2s;">ABOUT</a></li>
+                <li><a href="#page5" style="--i: 0.25s;">CONTACT</a></li>
+            </ul>
+            <!-- Redes sociales -->
+            <div class="social-links">
+                <a href="https://github.com/tu-usuario" target="_blank" style="--i: 0.3s;">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="https://linkedin.com/in/tu-usuario" target="_blank" style="--i: 0.35s;">
+                    <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://twitter.com/tu-usuario" target="_blank" style="--i: 0.4s;">
+                    <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="https://instagram.com/tu-usuario" target="_blank" style="--i: 0.45s;">
+                    <i class="ri-instagram-line"></i>
+                </a>
             </div>
-            <div id="page2-right">
-                <img src="src/imagen_2.jpg" alt="">
-                <h1>Front-End investigator developer whit expirience in cloud services and different languages of programming</h1>
-            </div>
-            
-        </div>
-        <div id="page3">
-            <h1>Website</h1>
-            <img src="/src/logo_dilan.png" alt="">
-        </div>
-        <div id="page4">
-            <div id="page4-left">
-                <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/605c679f33f67d3dd00b04b4_avatar-3.jpeg" >
-            </div>
-            <div id="page4-right">
-                <h4>ABOUT ME!</h4>
-                <p class="styled-first-letter">Hello! My name is Dilan Perdomo, a passionate student of electronic engineering born on July 7, 1995. I specialize in web programming and have gained proficiency in languages such as HTML, CSS, JavaScript, and MySQL. 
-                    Additionally, I have expanded my skill set to include cloud computing through comprehensive courses from Google.</p>
-                <p>I am committed to applying my knowledge and skills to contribute to the growth and success of any organization. My dedication to continuous learning ensures that I stay updated with the latest industry trends and technologies. 
-                    I am fluent in English and possess intermediate proficiency in the Microsoft Office suite.</p>
-                <div id="anda">
-                    <img  src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/61001a3509319b6ae39e156b_arrow-long.svg">
-                    <h1>CURRICULUM</h1>
-                </div>
-            </div>
-        </div>        
-            <div id="page5">
-                <div >
-                    <h1>Let's create something together <span>Email me</span></h1>
-                </div>
-                <div>                
-                    <h1>Let's create something together <span>Email me</span></h1> 
-                </div>               
-                <div>                
-                    <h1>Let's create something together <span>Email me</span></h1> 
-                </div>               
-            </div>        
-        <div id="page6">
         </div>
     </div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
-        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="script.js"></script>
-    
-    
+    <script src="script_1.js"></script>
+    <script src="script_2.js"></script>
 </body>
 </html>

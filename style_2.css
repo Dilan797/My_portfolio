@@ -1,0 +1,374 @@
+/* Estilo general del navbar */
+#nav {
+    height: 95px;
+    width: 100%;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+    background-color: #C4BCB3;
+    position: relative;
+    z-index: 10;
+}
+
+/* Estilo del ícono del menú */
+#menu-icon {
+    width: 35px;
+    height: 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 100; /* Asegura que esté por encima del contenido */
+}
+
+/* Líneas del ícono */
+#menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transform-origin: 50% 50%; /* Centra el punto de rotación */
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Transformaciones para convertirlo en una cruz */
+#menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(6px); /* Primera línea se cruza */
+}
+
+#menu-icon.active span:nth-child(2) {
+    transform: rotate(-45deg) translateY(-6px); /* Segunda línea se cruza */
+}
+------------------------
+/* nav-effect.css */
+/* nav-effect.css */
+.container {
+    min-height: 100vh;
+    width: 100%;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #C4BCB3; /* Color de fondo original */
+}
+
+/* Menú lateral ajustado */
+.links {
+    position: fixed;
+    width: 30%;
+    right: -30%; /* Inicialmente oculto */
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c19;
+    transition: 0.5s;
+}
+
+/* Cuando el menú está activo */
+.container.active .links {
+    right: 0;
+}
+
+.container.active .main-container {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+
+/* Sombras ajustadas */
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background-color: #C4BCB3;
+}
+
+.shadow.one {
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.shadow.two {
+    z-index: -2;
+    opacity: 0.1;
+}
+
+/* Ajustes para el menú hamburguesa */
+.hamburger-menu {
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 99;
+}
+
+.bar {
+    width: 1.9rem;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: #222;
+    transition: 0.5s;
+    position: relative;
+}
+
+.bar:before,
+.bar:after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #222;
+    transition: 0.5s;
+}
+
+.bar:before {
+    transform: translateY(-9px);
+}
+
+.bar:after {
+    transform: translateY(9px);
+}
+
+/* Animación del menú hamburguesa */
+.container.active .bar {
+    transform: rotate(360deg);
+    background-color: transparent;
+}
+
+.container.active .bar:before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* Enlaces del menú */
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links a {
+    text-decoration: none;
+    color: #C4BCB3;
+    padding: 0.7rem 0;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-family: domaine, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hide 0.5s forwards ease;
+}
+
+.container.active .links a {
+    animation: appear 0.5s forwards ease var(--i);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+-----------------------
+/* Estilos para el menú y el botón de cierre */
+.links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Cambiado para acomodar el botón de cierre */
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c19;
+    z-index: 10;
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);    
+}
+
+/* Botón de cierre */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    color: #C4BCB3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: appear 0.5s forwards ease 0.3s;
+}
+
+/* Estilos para deshabilitar la interacción con la página principal */
+.container.active .main-container {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    pointer-events: none; /* Deshabilita la interacción */
+    filter: blur(2px); /* Añade un ligero desenfoque */
+}
+
+/* Enlaces del menú */
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #C4BCB3;
+    padding: 1rem 2rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-family: domaine, serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #ffffff;
+}
+/* Bloqueo de scroll */
+.scroll-lock {
+    overflow: hidden !important;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
+
+
+
+Ningún archivo seleccionado
+
+
+
+3.5 Sonnet
+
+Explanatory
+Tip:
+Long chats cause you to reach your usage limits faster.
+Start a new chat 
+
+CSS mejorado para bloquear el scroll
+
+/* Añade estos estilos a tu archivo CSS */
+
+/* Estilo base para el body cuando el scroll está bloqueado */
+body.scroll-locked {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Ajusta el contenedor principal */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Asegura que el contenido principal no sea scrolleable cuando el menú está activo */
+.container.active .main-container {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    pointer-events: none;
+    filter: blur(2px);
+    overflow: hidden;
+    touch-action: none; /* Previene el scroll en dispositivos táctiles */
+}
+body.scroll-locked {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Ajustes al menú de navegación */
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.nav-links li {
+    margin: 1rem 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #C4BCB3;
+    font-size: 1.5rem;
+    font-family: domaine, serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+---------------
+/* Estilos para redes sociales */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: #C4BCB3;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Animaciones para los iconos sociales */
+.container.active .social-links a {
+    animation: appear 0.5s forwards ease var(--i);
+}

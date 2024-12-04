@@ -12,7 +12,10 @@ html, body{
     height: 100%;
     width: 100%;
     font-size: 16px; /* Define a base font-size para usar unidades rem */
+    background-color:#222;
+    overflow-x: hidden; /* Previene scroll horizontal */
 }
+
 #main{
     position: absolute;
     background-color:#222;
@@ -26,21 +29,14 @@ html, body{
 
 }
 /* Header styles */
-#nav{
-    height:95px;
-    width:100%;
-    display:flex;
-    padding: 0 30px ;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #222;
-}
+
 #nav img{
-    height: 40px;
-    width: 30%;
+    height: 50px;
+    width: 48%;
+    margin-left:-390px;
 }
 #nav h5{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 100;
     margin-left:25px;
     width:30%;
@@ -398,7 +394,8 @@ html, body{
 /* Estilo letrero final de pagina  */
 #page5 {
     width: 100%;
-    padding:30px 0;
+    height:10vw;
+    padding:20px 0;
     background-color:#C4BCB3;
     display: flex;
     align-items: center;
@@ -410,6 +407,7 @@ html, body{
     font-family:domaine;
     margin: 10px;
     white-space: nowrap;
+    
     font-weight:100;
     margin-right:20px;
     animation-timing-function:linear;
