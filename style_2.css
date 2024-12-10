@@ -51,7 +51,8 @@
     overflow: hidden;
     position: relative;
     background-color: transparent;
-    
+    perspective: 2000px;
+    transform-origin: left center;
 }
 
 .main-container {
@@ -269,22 +270,6 @@
     width: 100%;
 }
 
-
-
-
-Ningún archivo seleccionado
-
-
-
-3.5 Sonnet
-
-Explanatory
-Tip:
-Long chats cause you to reach your usage limits faster.
-Start a new chat 
-
-CSS mejorado para bloquear el scroll
-
 /* Añade estos estilos a tu archivo CSS */
 
 /* Estilo base para el body cuando el scroll está bloqueado */
@@ -371,4 +356,94 @@ body.scroll-locked {
 /* Animaciones para los iconos sociales */
 .container.active .social-links a {
     animation: appear 0.5s forwards ease var(--i);
+}
+----------------------------
+/* Estilos específicos para cada página apilada */
+/* Contenedor de páginas apiladas */
+.stacked-pages-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+}
+
+.stacked-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 79%;
+    height: 98vh;
+    background-color: #C4BCB3;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Efectos cuando el menú está activo */
+.container.active .stacked-page {
+    visibility: visible;
+    opacity: 0.9;
+}
+
+/* Efecto de capas apiladas */
+.container.active .stacked-page:nth-child(1) {
+    transform: perspective(885px) rotateY(20deg) translateX(-11%) translateZ(-766px) translateY(-1px) scale(0.8) ;
+    opacity: 0.5;
+}
+
+.container.active .stacked-page:nth-child(2) {
+    transform: perspective(885px) rotateY(21deg) translateX(0%) translateZ(-544px) translateY(4px) scale(0.85);
+    opacity: 0.7;
+}
+
+.container.active .stacked-page:nth-child(3) {
+    transform: translate(-80%, -50%) translateZ(-150px) rotateY(15deg);
+    opacity: 0.7;
+}
+
+/* Estilos para el contenido de las páginas */
+.page-preview {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #C4BCB3;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+/* Mantener las sombras consistentes */
+
+/* Mantener las sombras consistentes con el efecto principal */
+.stacked-page .shadow.one {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background-color: #C4BCB3;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.stacked-page .shadow.two {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background-color: #C4BCB3;
+    z-index: -2;
+    opacity: 0.1;
 }
