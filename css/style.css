@@ -1,7 +1,7 @@
 
 @font-face{
     font-family: domaine;
-    src: url('/domaine.ttf');
+    src: url('../fonts/domaine.ttf');
 }
 *{
     margin:0;
