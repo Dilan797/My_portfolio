@@ -1,38 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Selección de elementos del DOM
+    // DOM Element Selection
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const container = document.querySelector('.container');
     const closeBtn = document.querySelector('.close-btn');
     const links = document.querySelectorAll('.links a');
     const mainContainer = document.querySelector('.main-container');
 
-    // Verificación de elementos críticos
+    // Critical Elements Verification
     if (!container || !mainContainer) {
-        console.error('Elementos críticos no encontrados');
+        console.error('Critical elements not found in the DOM');
         return;
     }
 
-    // Limpiar cualquier estado residual al cargar
+    // Clear residual state on load
     const existingStackedContainer = document.querySelector('.stacked-pages-container');
     if (existingStackedContainer) {
         existingStackedContainer.remove();
     }
     document.body.style.opacity = '1';
 
-    const pages = ['contact.html', 'projects.html', 'about.html'];
+    // Using absolute paths for better compatibility with deployment
+    const pages = ['/contact.html', '/projects.html', '/about.html'];
     let stackedPages = [];
 
     async function loadPageContent(url) {
         try {
             const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const text = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
             const pageContent = doc.querySelector('.page-content');
-            return pageContent ? pageContent.innerHTML : '<div>No se encontró contenido</div>';
+            
+            if (!pageContent) {
+                throw new Error('Page content structure not found');
+            }
+            
+            return pageContent.innerHTML;
         } catch (error) {
-            console.error('Error al cargar la página:', error);
-            return '<div>Error al cargar el contenido</div>';
+            console.error(`Error loading ${url}:`, error);
+            return `<div class="error-message">
+                        <h3>Error al cargar el contenido</h3>
+                        <p>No se pudo cargar ${url}</p>
+                        <p>Por favor, intente nuevamente más tarde</p>
+                    </div>`;
         }
     }
 
@@ -58,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     const pageName = this.getAttribute('data-page');
                     if (pageName) {
-                        window.location.href = `${pageName}.html`;
+                        // Using absolute path for navigation
+                        window.location.href = `/${pageName}.html`;
                     }
                 }
             }
@@ -67,27 +81,42 @@ document.addEventListener('DOMContentLoaded', function() {
         return page;
     }
 
+    function colapsePage(page) {
+        page.classList.remove('show-page');
+        page.querySelector('.return-button').style.display = 'none';
+        mainContainer.style.transform = 'perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.65)';
+        mainContainer.style.zIndex = '0';
+    }
+
     async function initializeStackedPages() {
-        if (!document.querySelector('.stacked-pages-container')) {
-            const stackedContainer = document.createElement('div');
-            stackedContainer.className = 'stacked-pages-container';
+        try {
+            if (!document.querySelector('.stacked-pages-container')) {
+                const stackedContainer = document.createElement('div');
+                stackedContainer.className = 'stacked-pages-container';
 
-            for (let i = 0; i < pages.length; i++) {
-                const url = pages[i];
-                const content = await loadPageContent(url);
-                if (content) {
-                    const pageName = url.replace('.html', '');
-                    const page = createStackedPage(i + 1, content, pageName);
-                    stackedContainer.appendChild(page);
-                    stackedPages.push(page);
+                for (let i = 0; i < pages.length; i++) {
+                    const url = pages[i];
+                    const content = await loadPageContent(url);
+                    if (content) {
+                        const pageName = url.replace('.html', '').replace('/', '');
+                        const page = createStackedPage(i + 1, content, pageName);
+                        stackedContainer.appendChild(page);
+                        stackedPages.push(page);
+                    }
                 }
-            }
 
-            container.appendChild(stackedContainer);
+                container.appendChild(stackedContainer);
+            }
+        } catch (error) {
+            console.error('Error initializing stacked pages:', error);
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.innerHTML = '<p>Error al cargar las páginas. Por favor, recargue la página.</p>';
+            container.appendChild(errorMessage);
         }
     }
 
-    // Manejador del menú hamburguesa
+    // Hamburger menu handler
     if (hamburgerMenu) {
         hamburgerMenu.addEventListener('click', async () => {
             if (!container.classList.contains('active')) {
@@ -103,11 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Manejador de clic para el contenedor principal
-        // Manejador de clic para el contenedor principal
+    // Main container click handler
     if (mainContainer) {
-        const mainContent = mainContainer.querySelector('.main');
-        
         mainContainer.addEventListener('click', function(e) {
             if (e.target.closest('.hamburger-menu')) return;
 
@@ -115,42 +141,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isExpanded = mainContainer.classList.contains('expanded');
                 
                 if (!isExpanded) {
-                    // Verificar si estamos en index.html
-                    if (window.location.pathname.includes('index.html')) {
-                        // Limpiar todo el estado
-                        container.classList.remove('active');
-                        mainContainer.style = '';
-                        mainContainer.classList.remove('expanded');
-                        
-                        // Remover el contenedor de páginas apiladas
-                        const stackedContainer = document.querySelector('.stacked-pages-container');
-                        if (stackedContainer) {
-                            stackedContainer.remove();
-                        }
-                        
-                        // Reiniciar todo el estado
-                        stackedPages = [];
-                        
-                        // Recargar la página
-                        window.location.reload();
+                    // Check if we're on index page
+                    const isIndex = window.location.pathname === '/' || 
+                                  window.location.pathname === '/index.html';
+                    
+                    if (isIndex) {
+                        resetState();
                     } else {
                         mainContainer.classList.add('expanded');
                         container.classList.remove('active');
                         mainContainer.style = '';
-                        
-                        const stackedContainer = document.querySelector('.stacked-pages-container');
-                        if (stackedContainer) {
-                            stackedContainer.remove();
-                        }
-                        
-                        stackedPages = [];
+                        resetStackedPages();
                     }
                 }
             }
         });
     }
 
-    // Botón de cierre
+    function resetState() {
+        container.classList.remove('active');
+        mainContainer.style = '';
+        mainContainer.classList.remove('expanded');
+        resetStackedPages();
+        window.location.reload();
+    }
+
+    function resetStackedPages() {
+        const stackedContainer = document.querySelector('.stacked-pages-container');
+        if (stackedContainer) {
+            stackedContainer.remove();
+        }
+        stackedPages = [];
+    }
+
+    // Close button handler
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             container.classList.remove('active');
@@ -161,25 +185,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enlaces de navegación
-    
+    // Navigation links handler
     links.forEach(link => {
         link.addEventListener('click', async (e) => {
             e.preventDefault();
             const href = link.getAttribute('href');
 
-            if (href === 'index.html') {
-                // Solo mover la página principal al frente
+            if (href === 'index.html' || href === '/index.html' || href === '/') {
                 mainContainer.style.transform = 'perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.65)';
                 mainContainer.style.zIndex = '0';
-                
-                // Asegurarnos que las otras páginas estén detrás
-                stackedPages.forEach(p => {
-                    p.classList.remove('show-page');
-                });
-                
+                stackedPages.forEach(p => p.classList.remove('show-page'));
             } else {
-                const targetPageName = href.replace('.html', '');
+                const targetPageName = href.replace('.html', '').replace('/', '');
                 mainContainer.style.transform = 'perspective(1300px) rotateY(20deg) translateZ(-766px) scale(0.65)';
                 mainContainer.style.zIndex = '-3';
 
@@ -187,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     p.classList.remove('show-page');
                     if (p.getAttribute('data-page') === targetPageName) {
                         p.classList.add('show-page');
+                        p.querySelector('.return-button').style.display = 'block';
                     }
                 });
             }
