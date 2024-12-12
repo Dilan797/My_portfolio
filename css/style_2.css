@@ -59,10 +59,12 @@
     width: 100%;
     min-height: 100vh;
     position: relative;
+    transform-style: preserve-3d;
     transform-origin: left;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #C4BCB3; /* Color de fondo original */
 }
+
 
 /* Menú lateral ajustado */
 .links {
@@ -289,14 +291,7 @@ body.scroll-locked {
     background-color: transparent;
 }
 
-/* Asegura que el contenido principal no sea scrolleable cuando el menú está activo */
-.container.active .main-container {
-    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
-    pointer-events: none;
-    filter: blur(2px);
-    overflow: hidden;
-    touch-action: none; /* Previene el scroll en dispositivos táctiles */
-}
+
 body.scroll-locked {
     overflow: hidden;
     position: fixed;
@@ -369,6 +364,8 @@ body.scroll-locked {
     pointer-events: none;
     transform-style: preserve-3d;
     perspective: 2000px;
+    backface-visibility: hidden; /* Previene problemas de renderizado */
+    z-index:50;
 }
 
 .stacked-page {
@@ -383,6 +380,8 @@ body.scroll-locked {
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    opacity: 0.9;
+    will-change: transform, opacity; /* Optimiza las transformaciones */
 }
 
 /* Efectos cuando el menú está activo */
@@ -391,20 +390,33 @@ body.scroll-locked {
     opacity: 0.9;
 }
 
+/* Asegura que el contenido principal no sea scrolleable cuando el menú está activo */
+.container.active .main-container {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.65);
+    pointer-events: none;
+    filter: blur(1px);
+    overflow: hidden;    
+    opacity:1;
+    touch-action: none; /* Previene el scroll en dispositivos táctiles */
+}
+
 /* Efecto de capas apiladas */
 .container.active .stacked-page:nth-child(1) {
-    transform: perspective(885px) rotateY(20deg) translateX(-11%) translateZ(-766px) translateY(-1px) scale(0.8) ;
-    opacity: 0.5;
+    transform: perspective(1300px) rotateY(20deg) translateX(-8%) translateZ(-766px) translateY(-1px) scale(0.8) ;
+    opacity: 0.08;   
+    z-index:-24;
 }
 
 .container.active .stacked-page:nth-child(2) {
-    transform: perspective(885px) rotateY(21deg) translateX(0%) translateZ(-544px) translateY(4px) scale(0.85);
-    opacity: 0.7;
+    transform: perspective(1300px) rotateY(20deg) translateX(-5%) translateZ(-544px) translateY(4px) scale(0.8);
+    opacity: 0.15;
+    z-index:-24;
 }
 
 .container.active .stacked-page:nth-child(3) {
-    transform: translate(-80%, -50%) translateZ(-150px) rotateY(15deg);
-    opacity: 0.7;
+    transform: perspective(1300px) translate(-8%, -1%) translateZ(-150px) rotateY(20deg) scale(0.74);
+    opacity: 0.3;
+    z-index:-24;
 }
 
 /* Estilos para el contenido de las páginas */
@@ -447,3 +459,14 @@ body.scroll-locked {
     z-index: -2;
     opacity: 0.1;
 }
+
+/* Estado cuando una página específica está al frente */
+.container.active  .stacked-page.show-page {
+    
+    transform: perspective(1300px) rotateY(20deg) translateZ(160px) translateX(-38px) scale(0.65);    
+    pointer-events: auto;
+    opacity:1;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
+    transform-style: preserve-3d;
+}
+
