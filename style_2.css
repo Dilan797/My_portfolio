@@ -77,7 +77,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1c1c19;
+    
     transition: 0.5s;
 }
 
@@ -172,19 +172,7 @@
     padding: 0;
 }
 
-.links a {
-    text-decoration: none;
-    color: #C4BCB3;
-    padding: 0.7rem 0;
-    display: inline-block;
-    font-size: 1.2rem;
-    font-family: domaine, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: hide 0.5s forwards ease;
-}
+
 
 .container.active .links a {
     animation: appear 0.5s forwards ease var(--i);
@@ -229,7 +217,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     opacity: 0;
     animation: appear 0.5s forwards ease 0.3s;
 }
@@ -252,12 +240,12 @@
 .links a {
     text-decoration: none;
     color: #C4BCB3;
-    padding: 1rem 2rem;
+    padding: .2rem 1rem;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 3.2rem;
     font-family: domaine, serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     transition: color 0.3s ease;
 }
 
@@ -304,7 +292,7 @@ body.scroll-locked {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .nav-links {
