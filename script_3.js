@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cursor: 'auto'
             },
             'menu-open': {
-                transform: 'perspective(1300px) rotateY(16deg) translateZ(310px) translateX(-21px) scale(0.65)',
+                transform: 'perspective(1300px) rotateY(14deg) translateZ(310px) translateX(-15px) scale(0.65)',
                 zIndex: '0',
                 cursor: 'pointer'
             },

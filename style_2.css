@@ -363,7 +363,7 @@ body.scroll-locked {
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
-    overflow: hidden; /* Añadir esta línea */
+    overflow: auto; /* Añadir esta línea */
     opacity: 0.9;
     will-change: transform, opacity; /* Optimiza las transformaciones */
 }
@@ -371,7 +371,7 @@ body.scroll-locked {
 /* Efectos cuando el menú está activo */
 .container.active .stacked-page {
     visibility: visible;
-    left:-80px;
+    left:-70px;
     opacity: 0.9;
 }
 
@@ -380,7 +380,7 @@ body.scroll-locked {
     transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.65);
     pointer-events: auto;
     filter: blur(1px);
-    overflow: hidden;    
+    overflow: auto;    
     opacity:1;
     touch-action: none; /* Previene el scroll en dispositivos táctiles */
 }

@@ -1,41 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Selección de elementos del DOM
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const container = document.querySelector('.container');
     const closeBtn = document.querySelector('.close-btn');
     const links = document.querySelectorAll('.links a');
     const mainContainer = document.querySelector('.main-container');
-    let scrollEnabled = true;
+    let scrollPosition = 0;
 
+    // Verificación inicial
     if (!container || !mainContainer) {
         console.error('Elementos críticos no encontrados');
         return;
     }
 
+    // Limpieza inicial
     const existingStackedContainer = document.querySelector('.stacked-pages-container');
     if (existingStackedContainer) {
         existingStackedContainer.remove();
     }
     document.body.style.opacity = '1';
 
+    // Configuración inicial
     const pages = ['contact.html', 'projects.html', 'about.html'];
     let stackedPages = [];
 
-    // Reemplaza la función toggleScroll
+    // Función mejorada para el manejo del scroll
     function toggleScroll(enable) {
-        scrollEnabled = enable;
-        if (enable) {
-            document.body.classList.remove('no-scroll');
-            document.querySelectorAll('.stacked-page').forEach(page => {
-                const preview = page.querySelector('.page-preview');
-                if (preview) {
-                    preview.classList.add('preview-hidden');
-                }
-            });
+        if (!enable) {
+            scrollPosition = window.pageYOffset;
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.style.touchAction = 'none';
         } else {
-            document.body.classList.add('no-scroll');
+            document.body.style.removeProperty('overflow');
+            document.body.style.removeProperty('position');
+            document.body.style.removeProperty('top');
+            document.body.style.removeProperty('width');
+            document.body.style.removeProperty('touch-action');
+            window.scrollTo(0, scrollPosition);
         }
     }
 
+    // Función para cargar contenido de páginas
     async function loadPageContent(url) {
         try {
             const response = await fetch(url);
@@ -46,11 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
             
-            // Get the main container that includes all content
             const mainContainer = doc.querySelector('.main-container');
             
             if (!mainContainer) {
-                // If we can't find the main container, try to get individual components
                 const nav = doc.querySelector('#nav');
                 const content = doc.querySelector('#elements') || 
                             doc.querySelector('.page-content') ||
@@ -65,11 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                 }
             } else {
-                // If we found the main container, use its content
                 return mainContainer.querySelector('.main').innerHTML;
             }
             
-            // Fallback content if nothing is found
             throw new Error('Content structure not found');
             
         } catch (error) {
@@ -91,108 +95,126 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     }
-    
+
+    // Función para crear páginas apiladas
+    function createStackedPage(index, content, pageName) {
+        const page = document.createElement('div');
+        page.className = 'stacked-page';
+        page.style.zIndex = -index;
+        page.setAttribute('data-page', pageName);
+
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = content;
+        tempDiv.querySelectorAll('.return-button').forEach(btn => btn.remove());
+
+        page.innerHTML = `
+            <div class="page-preview">
+                <div class="page-inner">
+                    ${tempDiv.innerHTML}
+                </div>
+            </div>
+            <div class="shadow one"></div>
+            <div class="shadow two"></div>
+            <button class="return-button">×</button>
+        `;
+
+        const returnButton = page.querySelector('.return-button');
+        if (returnButton) {
+            Object.assign(returnButton.style, {
+                display: 'none',
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                zIndex: '100',
+                background: 'transparent',
+                color: 'transparent',
+                border: 'none',
+                padding: '10px',
+                cursor: 'pointer',
+                fontSize: '24px'
+            });
+        }
+
+        page.addEventListener('click', function(e) {
+            if (this.classList.contains('show-page')) {
+                if (e.target.classList.contains('return-button')) {
+                    colapsePage(this);
+                } else {
+                    const pageName = this.getAttribute('data-page');
+                    if (pageName) {
+                        window.location.href = `${pageName}.html`;
+                    }
+                }
+            }
+        });
+
+        return page;
+    }
+
+    // Función para inicializar páginas apiladas
     async function initializeStackedPages() {
         if (!document.querySelector('.stacked-pages-container')) {
+            toggleScroll(false);
+            
             const stackedContainer = document.createElement('div');
             stackedContainer.className = 'stacked-pages-container';
-            function createStackedPage(index, content, pageName) {
-                const page = document.createElement('div');
-                page.className = 'stacked-page';
-                page.style.zIndex = -index;
-                page.setAttribute('data-page', pageName);
-            
-                // Crear un elemento temporal para manipular el contenido
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = content;
-            
-                // Remover cualquier botón de retorno existente
-                tempDiv.querySelectorAll('.return-button').forEach(btn => btn.remove());
-            
-                // Construir la estructura de la página sin estilos inline en el botón
-                page.innerHTML = `
-                    <div class="page-preview">
-                        <div class="page-inner">
-                            ${tempDiv.innerHTML}
-                        </div>
-                    </div>
-                    <div class="shadow one"></div>
-                    <div class="shadow two"></div>
-                    <button class="return-button">×</button>
-                `;
-            
-                // Recuperar el botón y aplicar estilos mediante JavaScript
-                const returnButton = page.querySelector('.return-button');
-                if (returnButton) {
-                    Object.assign(returnButton.style, {
-                        display: 'none',
-                        position: 'absolute', // Cambiado de 'fixed' a 'absolute'
-                        top: '20px',
-                        right: '20px',
-                        zIndex: '100',
-                        background: 'transparent',
-                        color: 'transparent',
-                        border: 'none',
-                        padding: '10px',
-                        cursor: 'pointer',
-                        fontSize: '24px'
-                    });
-                }
-            
-                page.addEventListener('click', function(e) {
-                    if (this.classList.contains('show-page')) {
-                        if (e.target.classList.contains('return-button')) {
-                            colapsePage(this);
-                        } else {
-                            const pageName = this.getAttribute('data-page');
-                            if (pageName) {
-                                window.location.href = `${pageName}.html`;
-                            }
-                        }
-                    }
-                });
-            
-                return page;
-            }
-            for (let i = 0; i < pages.length; i++) {
-                const url = pages[i];
-                const content = await loadPageContent(url);
-                if (content) {
-                    const pageName = url.replace('.html', '');
-                    const page = createStackedPage(i + 1, content, pageName);
-                    stackedContainer.appendChild(page);
-                    stackedPages.push(page);
-                }
-            }
 
-            container.appendChild(stackedContainer);
+            try {
+                for (let i = 0; i < pages.length; i++) {
+                    const url = pages[i];
+                    const content = await loadPageContent(url);
+                    if (content) {
+                        const pageName = url.replace('.html', '');
+                        const page = createStackedPage(i + 1, content, pageName);
+                        stackedContainer.appendChild(page);
+                        stackedPages.push(page);
+                    }
+                }
+                container.appendChild(stackedContainer);
+            } finally {
+                toggleScroll(true);
+            }
         }
     }
 
+    // Función para manejar transiciones de página
+    function handlePageTransition(targetPageName) {
+        mainContainer.style.transform = 'perspective(1300px) rotateY(20deg) translateZ(-766px) scale(0.65)';
+        mainContainer.style.zIndex = '-3';
+        
+        stackedPages.forEach(p => {
+            p.classList.remove('show-page');
+            if (p.getAttribute('data-page') === targetPageName) {
+                p.classList.add('show-page');
+                const returnButton = p.querySelector('.return-button');
+                if (returnButton) {
+                    returnButton.style.display = 'block';
+                }
+            }
+        });
+
+        setTimeout(() => toggleScroll(true), 700);
+    }
+
+    // Función para restablecer el estado
     function resetState() {
         container.classList.remove('active');
         mainContainer.style.transform = 'none';
         mainContainer.style.cursor = 'auto';
-        toggleScroll(true);
-        stackedPages.forEach(p => p.classList.remove('show-page'));
-    }
-
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', async () => {
-            if (!container.classList.contains('active')) {
-                container.classList.add('active');
-                toggleScroll(true);
-                
-                if (stackedPages.length === 0) {
-                    await initializeStackedPages();
-                }
-                
-                mainContainer.style.transform = 'perspective(1300px) rotateY(15deg) translateZ(271px) scale(0.65)';
-                mainContainer.style.cursor = 'pointer';
+        mainContainer.style.zIndex = '0';
+        
+        stackedPages.forEach(p => {
+            p.classList.remove('show-page');
+            const returnButton = p.querySelector('.return-button');
+            if (returnButton) {
+                returnButton.style.display = 'none';
             }
         });
+        
+        toggleScroll(true);
     }
 
+    // Función para colapsar página
     function colapsePage(page) {
         page.classList.remove('show-page');
         page.querySelector('.return-button').style.display = 'none';
@@ -201,10 +223,26 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleScroll(true);
     }
 
+    // Event Listeners
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', async () => {
+            if (!container.classList.contains('active')) {
+                toggleScroll(false);
+                container.classList.add('active');
+                
+                if (stackedPages.length === 0) {
+                    await initializeStackedPages();
+                }
+                
+                mainContainer.style.transform = 'perspective(1300px) rotateY(15deg) translateZ(271px) translateX(-16px) scale(0.7)';
+                mainContainer.style.cursor = 'pointer';
+            }
+        });
+    }
+
     if (mainContainer) {
         mainContainer.addEventListener('click', function(e) {
             if (e.target.closest('.hamburger-menu')) return;
-
             if (container.classList.contains('active')) {
                 resetState();
             }
@@ -220,24 +258,30 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const href = link.getAttribute('href');
 
+            toggleScroll(false);
+
             if (href === 'index.html' || href === '/index.html' || href === '/') {
-                mainContainer.style.transform = 'perspective(1300px) rotateY(16deg) translateZ(289px) scale(0.65)';
+                mainContainer.style.transform = 'perspective(1300px) rotateY(15deg) translateZ(289px) translateX(-16px) scale(0.69)';
                 mainContainer.style.zIndex = '0';
                 stackedPages.forEach(p => p.classList.remove('show-page'));
-                toggleScroll(true);
+                setTimeout(() => toggleScroll(true), 700);
             } else {
                 const targetPageName = href.replace('.html', '');
-                mainContainer.style.transform = 'perspective(1300px) rotateY(20deg) translateZ(-766px) scale(0.65)';
-                mainContainer.style.zIndex = '-3';
-
-                stackedPages.forEach(p => {
-                    p.classList.remove('show-page');
-                    if (p.getAttribute('data-page') === targetPageName) {
-                        p.classList.add('show-page');
-                        p.querySelector('.return-button').style.display = 'block';
-                    }
-                });
+                handlePageTransition(targetPageName);
             }
         });
     });
-});
+
+    // Manejadores de eventos adicionales para el scroll
+    window.addEventListener('resize', () => {
+        if (!container.classList.contains('active')) {
+            toggleScroll(true);
+        }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && !container.classList.contains('active')) {
+            toggleScroll(true);
+        }
+    });
+}); 
