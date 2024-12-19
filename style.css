@@ -19,7 +19,7 @@ html, body{
 #main{
     position: absolute;
     background-color:#222;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 #page1{
     /* height: 160vh; */

@@ -3,43 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página - The Paper Portfolio</title>
-    <!-- Enlaces a estilos -->
+    <title>Projects - The Paper Portfolio</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_1.css">
     <link rel="stylesheet" href="style_2.css">
-    
 </head>
 <body>
-    <div class="container">
+    <div class="container">        
         <div class="main-container">
-            <!-- Barra de navegación -->
-            <div id="nav">
-                <h5>Huila, Co.</h5>
-                <img src="path-to-your-logo.svg">
-                <div id="menu-icon">
-                    <span></span>
-                    <span></span>
+            <div class="main">
+                <!-- Navigation Bar -->
+                <div id="nav">
+                    <h5>Huila, Co.</h5>
+                    <img src="https://uploads-ssl.webflow.com/5f2429f172d117fcee10e819/5f7f87c8b81a6e7a214312f0_header.svg">
+                    <div id="menu-icon" class="hamburger-menu">
+                        <div class="bar"></div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Contenido específico de la página -->
-            <div class="page-content">
-                <!-- Aquí va el contenido único de cada página -->
+                <!-- Page Content -->
+                <div id="elements">
+                    <div id="element1">
+                        <!-- Aquí va el contenido específico de cada página -->
+                        <div class="content-section">
+                            <h2>Projects</h2>
+                            <!-- Contenido específico de proyectos -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Sombras para el efecto 3D -->
-        <div class="shadow one"></div>
-        <div class="shadow two"></div>
-
-        <!-- Menú de navegación -->
-        <!-- Insertar el código del menú de navegación aquí -->
+        <!-- Navigation Menu -->
+        <div class="links">
+            <div class="close-btn">×</div>
+            <ul>
+                <li><a href="index.html" style="--i: 0.05s;">HOME</a></li>                
+                <li><a href="projects.html" style="--i: 0.15s;">PROJECTS</a></li>
+                <li><a href="about.html" style="--i: 0.2s;">ABOUT</a></li>
+                <li><a href="contact.html" style="--i: 0.25s;">CONTACT</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://github.com/tu-usuario" target="_blank" style="--i: 0.3s;">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="https://linkedin.com/in/tu-usuario" target="_blank" style="--i: 0.35s;">
+                    <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://twitter.com/tu-usuario" target="_blank" style="--i: 0.4s;">
+                    <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="https://instagram.com/tu-usuario" target="_blank" style="--i: 0.45s;">
+                    <i class="ri-instagram-line"></i>
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="script_1.js"></script>
-    <script src="script_2.js"></script>
+    <script src="script_3.js"></script>
 </body>
 </html>

@@ -62,6 +62,7 @@
     transform-style: preserve-3d;
     transform-origin: left;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
     background-color: #C4BCB3; /* Color de fondo original */
 }
 
@@ -69,7 +70,7 @@
 /* Menú lateral ajustado */
 .links {
     position: fixed;
-    width: 30%;
+    width: 27%;
     right: -30%; /* Inicialmente oculto */
     top: 0;
     height: 100vh;
@@ -86,9 +87,7 @@
     right: 0;
 }
 
-.container.active .main-container {
-    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
-}
+
 
 /* Sombras ajustadas */
 .shadow {
@@ -223,11 +222,7 @@
 }
 
 /* Estilos para deshabilitar la interacción con la página principal */
-.container.active .main-container {
-    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
-    pointer-events: none; /* Deshabilita la interacción */
-    filter: blur(2px); /* Añade un ligero desenfoque */
-}
+
 
 /* Enlaces del menú */
 .links ul {
@@ -359,8 +354,8 @@ body.scroll-locked {
 .stacked-page {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 79%;
+    left: -80px;
+    width: 90%;
     height: 98vh;
     background-color: #C4BCB3;
     transform: translate(-50%, -50%);
@@ -368,6 +363,7 @@ body.scroll-locked {
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    overflow: hidden; /* Añadir esta línea */
     opacity: 0.9;
     will-change: transform, opacity; /* Optimiza las transformaciones */
 }
@@ -375,13 +371,14 @@ body.scroll-locked {
 /* Efectos cuando el menú está activo */
 .container.active .stacked-page {
     visibility: visible;
+    left:-80px;
     opacity: 0.9;
 }
 
 /* Asegura que el contenido principal no sea scrolleable cuando el menú está activo */
 .container.active .main-container {
     transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.65);
-    pointer-events: none;
+    pointer-events: auto;
     filter: blur(1px);
     overflow: hidden;    
     opacity:1;
@@ -413,9 +410,34 @@ body.scroll-locked {
     height: 100%;
     padding: 20px;
     background: #C4BCB3;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.site-header {
+    padding: 20px;
+    background-color: #C4BCB3;
+    border-bottom: 1px solid #222;
+    margin-bottom: 30px;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.site-title {
+    font-family: domaine, serif;
+    font-size: 2rem;
+    margin: 0;
+    color: #000;
+}
+
+.page-content {
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 /* Mantener las sombras consistentes */
 
@@ -449,12 +471,29 @@ body.scroll-locked {
 }
 
 /* Estado cuando una página específica está al frente */
-.container.active  .stacked-page.show-page {
-    
-    transform: perspective(1300px) rotateY(20deg) translateZ(160px) translateX(-38px) scale(0.65);    
+.container.active .stacked-page.show-page {
+    transform:perspective(1300px) rotateY(20deg) translateZ(160px) translateX(-85px) scale(0.6); 
     pointer-events: auto;
     opacity:1;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
     transform-style: preserve-3d;
+    width:101%;
 }
 
+
+.c-scrollbar_thumb {
+    display: none !important;
+}
+
+/* Asegurar que el comportamiento del scroll sigue funcionando */
+[data-scroll-container] {
+    overflow: hidden !important;
+}
+
+/* Ocultar todas las barras de desplazamiento personalizadas */
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
